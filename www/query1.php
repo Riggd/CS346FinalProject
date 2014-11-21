@@ -1,28 +1,44 @@
-<a href='index.php'>Back to Home</a>
+<a href='index.php'>Back to Home</a></br>
+<style>
+table, th, td {
+	border: 1px solid black;
+}
+</style>
 <?php
 require_once('connect.php');
 
 if(isset($_POST['table'])) {
+   
+ 	$tablename = $_POST['table'];
+
     
-    $query = "SELECT * FROM ".$_POST['table']."";
-	$response = @mysqli_query($dbc, $query);
+    $query1 = "SELECT column_name FROM information_schema.columns 
+    where table_name='".$tablename."'";
+    $table_headers = @mysqli_query($dbc, $query1);
 
-	// If the query executed properly proceed
-	if($response){
+    $query2 = "SELECT * FROM ".$tablename."";
+	$table_data = @mysqli_query($dbc, $query2);
+
+	if($table_headers && $table_data){
 		echo "<table>";
-
-		while($rows = mysqli_fetch_array($response, MYSQL_ASSOC)){
-			echo "<tr>";
-		    
+		echo '<tr>';
+		while($rows = mysqli_fetch_array($table_headers, MYSQL_ASSOC)){	    
+			
 			foreach ($rows as $row) {
-
-				echo '<td>' . $row . '</td>';
+				echo '<th>' . $row . '</th>';
 			}	
-
-			echo "</tr>";
+			
+		}	
+		echo '</tr>';
+		while($rows2 = mysqli_fetch_array($table_data, MYSQL_ASSOC)){
+			echo '<tr>';
+			foreach ($rows2 as $row) {
+				echo '<td>' . $row . '</td>';
+			}
+			echo '</tr>';
 		}
-		echo "</table";
-	} 
+		echo "</table>";
+	}
 	else {
 
 	echo "Couldn't issue database query<br />";
@@ -32,5 +48,5 @@ if(isset($_POST['table'])) {
 
 	mysqli_close($dbc);
 
-	}
+}	
 ?>
