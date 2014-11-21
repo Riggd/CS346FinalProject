@@ -1,0 +1,6 @@
+- Complete transaction forms
+- Lookup past transactions
+- Add new equipment to inventory
+- Remove equipment from inventory
+- Add new Employees
+- Remove Employees
