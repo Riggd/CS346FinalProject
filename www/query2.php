@@ -1,36 +1,45 @@
 <a href='index.php'>Back to Home</a>
+<style>
+table, th, td {
+	border: 1px solid black;
+}
+</style>
 <?php
 require_once('connect.php');
-/*
-$studentname = $_POST['q2name'];
-$transdateafter = $_POST['q2after'];
-$transdatebefore = $_POST['q2before'];
-*/
+
 if(isset($_POST['q2name'], $_POST['q2after'], $_POST['q2before'])) {
     
 	$studentname = $_POST['q2name'];
 	$transdateafter = $_POST['q2after'];
 	$transdatebefore = $_POST['q2before'];
 
-    $query = "SELECT T.T_Number, S.FName, S.LName, T.Equip_id, T.Condition_in, T.Condition_out
+    $query = "SELECT T.t_number, STUDENT.fname, STUDENT.lname, T.Equip_id, T.condition_out, T.condition_in
     FROM TRANSACTIONS T
-    Where Transations.Trans_date > 2006-05-21 
-	and T.Trans_date < 2014-11-20
     INNER JOIN STUDENT
-    ON T.S_SSN = STUDENT.SSN";
+    ON T.s_ssn = STUDENT.ssn
+    Where STUDENT.fname like '%$studentname%' 
+    and T.trans_date > '$transdateafter' 
+	and T.trans_date < '$transdatebefore'";
 
 	$response = @mysqli_query($dbc, $query);
-
+	
 	// If the query executed properly proceed
 	if($response){
 		echo "<table>";
-
+		echo "<tr>
+				<th>T_Number</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Equip_ID</th>
+				<th>Condition Out</th>
+				<th>Condition In</th>
+			</tr>";
 		while($rows = mysqli_fetch_array($response, MYSQL_ASSOC)){
 			echo "<tr>";
 		    
 			foreach ($rows as $row) {
 
-				echo '<td>' . $row/*[$studentname]*/ . '</td>';
+				echo '<td>' . $row . '</td>';
 			}	
 
 			echo "</tr>";

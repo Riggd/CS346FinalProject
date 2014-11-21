@@ -1,8 +1,7 @@
 <html>
 <head>
 	<title>CS346 - Cameron Beasley, Derek Onay</title>
-</head>
-	
+</head>	
 <body>
 	<?php require_once('connect.php');?>
 	<h1>Welcome to our final project!</h1>
