@@ -51,30 +51,47 @@ if(isset($_POST['table'])) {
 	if ($tablename == 'employee') {
 	?>
 		<p><strong>To add an employee please enter the following data:</strong></p>
-		<form action="addemployee.php" method="POST">
-        	<label>Social Security Number:</label>
-        	<input required  title="Expected pattern: '#########'" name="ssn" />
-        	</br></br>
-        	<label>First Name:</label>        	
-        	<input type="text" name="fname" value="">
-        	</br></br>
-        	<label>MI:</label>
-        	<input type="text" name="mi" value="">
-        	</br></br>
-        	<label>Last Name:</label>
-        	<input type="text" name="lname" value="">
-        	</br></br>
-        	<label>Date of Birth:</label>
-        	<input type="date" name="dob" value="">
-        	</br></br>
-        	<label>Start Date:</label>
-        	<input type="date" name="start_date" value="">
-        	</br></br>
-        	<label>Supervisor SSN:</label>
-        	<input type="text" name="super_ssn" value="">
-			</br></br>
-        	<input type="submit" value="Add Employee">
-    	</form>
+        <form action="addemployee.php" method="POST">
+            <label>Social Security Number:</label>
+            <input required  title="Expected pattern: '#########'" name="ssn" />
+            </br></br>
+            <label>First Name:</label>          
+            <input type="text" name="fname" value="">
+            </br></br>
+            <label>MI:</label>
+            <input type="text" name="mi" value="">
+            </br></br>
+            <label>Last Name:</label>
+            <input type="text" name="lname" value="">
+            </br></br>
+            <label>Date of Birth:</label>
+            <input type="date" name="dob" value="">
+            </br></br>
+            <label>Start Date:</label>
+            <input type="date" name="start_date" value="">
+            </br></br>
+            <label>Supervisor SSN:</label>
+            <input type="text" name="super_ssn" value="">
+            </br></br>
+            <input type="submit" value="Add Employee">
+        </form>
+        
+        <p><strong>To delete an employee please enter the following data:</strong></p>
+        <form action="removeemployee.php" method="POST">
+            <label>Social Security Number:</label>
+            <input required  title="Expected pattern: '#########'" name="r_ssn" />
+            </br></br>
+            <label>First Name:</label>          
+            <input type="text" name="r_fname" value="">
+            </br></br>
+            <label>MI:</label>
+            <input type="text" name="r_mi" value="">
+            </br></br>
+            <label>Last Name:</label>
+            <input type="text" name="r_lname" value="">
+            </br></br>
+            <input type="submit" value="Delete Employee">
+        </form>
 	<?php
 	}
 	if ($tablename == 'equipment') {
