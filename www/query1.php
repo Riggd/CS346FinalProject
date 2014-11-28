@@ -55,7 +55,7 @@ if(isset($_POST['table'])) {
 		<p><strong>To add an employee please enter the following data:</strong></p>
 		<form action="addemployee.php" method="POST">
         	<label>Social Security Number:</label>
-        	<input required pattern="^d{9}$" title="Expected pattern: '#########'" name="ssn" />
+        	<input required  title="Expected pattern: '#########'" name="ssn" />
         	</br></br>
         	<label>First Name:</label>        	
         	<input type="text" name="fname" value="">

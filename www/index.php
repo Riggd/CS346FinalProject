@@ -25,7 +25,7 @@
     </p>
     <form action="query2.php" method="POST">
         Enter a student name:<input type="text" name="q2name" value="">
-        Enter date range:<br/>
+        Enter date range:<br/><br/>
             After: <input type="date" name="q2after">
             Before: <input type="date" name="q2before">
         <input type="submit" value="Find Table">
