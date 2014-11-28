@@ -43,10 +43,8 @@ if(isset($_POST['table'])) {
 		echo "</table>";
 	}
 	else {
-
-	echo "Couldn't issue database query<br />";
-	echo mysqli_error($dbc);
-
+    	echo "Couldn't issue database query<br />";
+    	echo mysqli_error($dbc);
 	}
 
 
@@ -80,14 +78,8 @@ if(isset($_POST['table'])) {
 	<?php
 	}
 	if ($tablename == 'equipment') {
-
-
     	if($condition_names) {
-    		while($names = mysqli_fetch_array($table_headers, MYSQL_ASSOC)){	    
-			
-					
-			
-				
+    		    
 	?>
 		<p><strong>To add new equipment please enter the following data:</strong></p>
 		<form action="addequipment.php" method="POST">
@@ -107,20 +99,22 @@ if(isset($_POST['table'])) {
         	<input type="decimal" name="price" value="">
         	</br></br>
         	<label>Condition Level:</label>
-        		<select name="condition_level">
-        			
-        			<?php foreach ($names as $name): ?>
-						 <option value="<?php echo $name; ?>"><?php echo $name ?></option> 
-					<?php endforeach;?>
+        		<select name="condition_level">        			
+                    <?php 
+                        while($names = mysqli_fetch_array($condition_names, MYSQL_ASSOC)) {
+                            foreach ($names as $name): ?>
+    						  <option value="<?php echo $name; ?>"><?php echo $name ?></option> 
+    					<?php endforeach;
+                    }?>
    				</select>
 			</br></br>
         	<input type="submit" value="Enter New Equipment">
     	</form>
 	<?php
-			}
 		}
 	}
 	if ($tablename == 'transaction') {
+        echo "Transaction table";
 	?>
 		<p><strong>To record a new transaction please enter the following data:</strong></p>
 		<form action="addemployee.php" method="POST">
@@ -148,7 +142,7 @@ if(isset($_POST['table'])) {
         	<input type="submit" value="Add Employee">
     	</form>
 	<?php
-}
+    }
 
 
 	mysqli_close($dbc);
