@@ -54,7 +54,7 @@ if(isset($_POST['employee'], $_POST['s_ssn'], $_POST['equip_id'], $_POST['condit
 			if($conditionoutresponse) {
 				echo "Success";
 
-				$date = date('Y-m-d H:i:s');
+				$date = date('Y-m-d');
 
 				$query = "INSERT INTO TRANSACTIONS (e_ssn, s_ssn, equip_id, trans_date, condition_out, condition_in)
 	    			VALUES ('$employeessn', '$s_ssn', '$equip_id', '$date', '$conditionoutid', '$conditioninid')";
