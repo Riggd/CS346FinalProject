@@ -44,7 +44,7 @@ if(isset($_POST['q2name'], $_POST['q2after'], $_POST['q2before'])) {
 
 			echo "</tr>";
 		}
-		echo "</table";
+		echo "</table>";
 	} 
 	else {
 

@@ -42,6 +42,7 @@
                 }?>
             </select>
         </br></br>
+        <input type="submit" value="New Transaction">
     </form>
 
     <hr />
@@ -70,6 +71,33 @@
             After: <input type="date" name="q2after">
             Before: <input type="date" name="q2before">
         <input type="submit" value="Find Table">
+    </form>
+
+    <p>Query 3:</br>
+       Current Value of Inventory
+        <<ul>
+            <li>New - 90% of list price</li>
+            <li>Good - 75%</li>
+            <li>Worn - 50%</li>
+            <li>Replace - 20%</li>
+        </ul>
+    </p>
+    <form action="query3.php" method="POST">
+        <label>Select All or Specific Brand to value:</label>
+            <select required name="brand">
+                <option value="%">All Inventory Items</option>
+                <?php
+                    $brandsquery = "SELECT brand FROM EQUIPMENT";
+                    $brands = @mysqli_query($dbc, $brandsquery);
+                    
+                    while($names = mysqli_fetch_array($brands, MYSQL_ASSOC)) {
+                        foreach ($names as $name): ?>
+                          <option value="<?php echo $name; ?>"><?php echo $name ?></option> 
+                    <?php endforeach;
+                }?>
+            </select>
+        </br></br>
+        <input type="submit" value="Value Inventory">
     </form>
 
 </body>

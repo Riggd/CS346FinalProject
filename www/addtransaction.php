@@ -81,10 +81,6 @@ if(isset($_POST['employee'], $_POST['s_ssn'], $_POST['equip_id'], $_POST['condit
 		echo mysqli_error($dbc);
 
 	}
-
-    
-
 	mysqli_close($dbc);
-
-	}
+}
 ?>
