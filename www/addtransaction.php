@@ -16,7 +16,11 @@ if(isset($_POST['employee'], $_POST['s_ssn'], $_POST['equip_id'], $_POST['condit
 
 	$employeefullname = explode(" ", $employee);
 
-	$employeequery = "SELECT ssn FROM EMPLOYEE WHERE fname = '$employeefullname[0]' AND mi = '$employeefullname[1]' AND lname = '$employeefullname[2]'";
+	$employeefname = $employeefullname[0];
+	$employeemi = $employeefullname[1];
+	$employeelname = $employeefullname[2];
+
+	$employeequery = "SELECT ssn FROM EMPLOYEE WHERE fname = '$employeefname' AND mi = '$employeemi' AND lname = '$employeelname'";
 
 	$employeeresponse = @mysqli_query($dbc, $employeequery);
 	while($employeessnarray = mysqli_fetch_array($employeeresponse, MYSQL_ASSOC)) {
