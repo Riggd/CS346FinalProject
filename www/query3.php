@@ -1,9 +1,4 @@
 <a href='index.php'>Back to Home</a>
-<style>
-table, th, td {
-	border: 1px solid black;
-}
-</style>
 <?php
 require_once('connect.php');
 
@@ -32,7 +27,7 @@ if(isset($_POST['brand'])) {
 			echo "<p>Total Value of " . $brand . " Inventory:</p>";
 		}
 
-		while($rows = mysqli_fetch_array($response, MYSQL_ASSOC)){
+		while($rows = mysqli_fetch_array($response, MYSQL_ASSOC)) {
 		    
 			foreach ($rows as $row) {
 				echo '<p>' . $row . '</p>';

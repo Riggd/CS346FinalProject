@@ -75,7 +75,7 @@
 
     <p>Query 3:</br>
        Current Value of Inventory
-        <<ul>
+        <ul>
             <li>New - 90% of list price</li>
             <li>Good - 75%</li>
             <li>Worn - 50%</li>
