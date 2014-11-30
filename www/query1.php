@@ -135,40 +135,22 @@ if(isset($_POST['table'])) {
             </br></br>
             <input type="submit" value="Delete Equipment">
         </form>
-	<?php
 		}
-	}
-	if ($tablename == 'transaction') {
-        echo "Transaction table";
-	?>
-		<p><strong>To record a new transaction please enter the following data:</strong></p>
-		<form action="addemployee.php" method="POST">
-        	<label>Social Security Number:</label>
-        	<input required pattern="^d{9}$" title="Expected pattern: '#########'" name="ssn" />
-        	</br></br>
-        	<label>First Name:</label>        	
-        	<input type="text" name="fname" value="">
-        	</br></br>
-        	<label>MI:</label>
-        	<input type="text" name="mi" value="">
-        	</br></br>
-        	<label>Last Name:</label>
-        	<input type="text" name="lname" value="">
-        	</br></br>
-        	<label>Date of Birth:</label>
-        	<input type="date" name="dob" value="">
-        	</br></br>
-        	<label>Start Date:</label>
-        	<input type="date" name="start_date" value="">
-        	</br></br>
-        	<label>Supervisor SSN:</label>
-        	<input type="text" name="super_ssn" value="">
-			</br></br>
-        	<input type="submit" value="Add Employee">
-    	</form>
 	<?php
     }
-
+    if ($tablename == 'transactions') {
+        if($condition_names) {
+                
+    ?>
+        <p><strong>To delete an incorrect transactions please enter the following data:</strong></p>
+        <form action="removetransaction.php" method="POST">
+            <label>Transaction ID:</label>
+            <input required name="r_trans_id" />
+            </br></br>
+            <input type="submit" value="Delete Transaction">
+        </form>
+        }
+    }
 
 	mysqli_close($dbc);
 

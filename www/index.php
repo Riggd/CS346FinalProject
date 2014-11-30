@@ -6,7 +6,48 @@
 	<?php require_once('connect.php');?>
 	<h1>Welcome to our final project!</h1>
 
-	<p>Query 1:</br>
+    <h3>P.O.S. Tools</h3>	
+
+    <p>New Transaction</p>
+    <form action="addtransaction.php" method="POST">
+        <label>Employee:</label>
+            <select required name="employee">                 
+                <?php
+                    $cemployee_query = "SELECT fname, mi, lname FROM employee ORDER BY lname";
+                    $employee_names = @mysqli_query($dbc, $cemployee_query);
+
+                    while($names = mysqli_fetch_array($employee_names, MYSQL_ASSOC)) {
+                        foreach ($names as $name): ?>
+                          <option value="<?php echo $name; ?>"><?php echo $name ?></option> 
+                    <?php endforeach;
+                }?>
+            </select>
+        </br></br>
+        <label>Student ID:</label>
+        <input required  title="Expected pattern: '#########'" name="s_ssn" />
+        </br></br>
+        <label>Equipment ID:</label>
+        <input required  title="Expected pattern: 'BSU-###'" name="equip_id" />
+        </br></br>
+        <label>Condition Level On Return:</label>
+            <select required name="condition_in">                 
+                <?php
+                    $condition_level_query = "SELECT condition_name FROM conditions";
+                    $condition_names = @mysqli_query($dbc, $condition_level_query);
+                    
+                    while($names = mysqli_fetch_array($condition_names, MYSQL_ASSOC)) {
+                        foreach ($names as $name): ?>
+                          <option value="<?php echo $name; ?>"><?php echo $name ?></option> 
+                    <?php endforeach;
+                }?>
+            </select>
+        </br></br>
+    </form>
+
+    <hr />
+    <h3>Admin Tools</h3>
+
+    <p>Query 1:</br>
        Choose which table you would like to see all records from:
     </p>
     <form action="query1.php" method="POST">
@@ -30,6 +71,7 @@
             Before: <input type="date" name="q2before">
         <input type="submit" value="Find Table">
     </form>
+
 </body>
 
 </html>
