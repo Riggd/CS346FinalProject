@@ -24,36 +24,38 @@ if(isset($_POST['employee'], $_POST['s_ssn'], $_POST['equip_id'], $_POST['condit
 
 	$employeeresponse = @mysqli_query($dbc, $employeequery);
 	while($employeessnarray = mysqli_fetch_array($employeeresponse, MYSQL_ASSOC)) {
-		$employeessn = $employeessnarray[0];
+		foreach($employeessnarray as $rowvalues){
+
+			$employeessn = $rowvalues;
+		}
 	}
 	
 	// If the query executed properly proceed
 	if($employeeresponse) {
-		echo "Success";
 
 		$conditionquery = "SELECT id FROM CONDITIONS WHERE condition_name = '$condition_in_name'";
 
 		$conditionnumberresponse = @mysqli_query($dbc, $conditionquery);
 
 		while($conditionidarray = mysqli_fetch_array($conditionnumberresponse, MYSQL_ASSOC)) {
-			$conditioninid = $conditionidarray[0];
+			foreach($conditionidarray as $cond){
+				$conditioninid = $cond;
+			}
 		}
 		
 		// If the query executed properly proceed
 		if($conditionnumberresponse) {
-			echo "Success";
-
 			$conditionoutquery = "SELECT condition_level FROM EQUIPMENT WHERE equip_id = '$equip_id'";
 
 			$conditionoutresponse = @mysqli_query($dbc, $conditionoutquery);
 
 			while($conditionoutarray = mysqli_fetch_array($conditionoutresponse, MYSQL_ASSOC)) {
-				$conditionoutid = $conditionoutarray[0];
+				foreach($conditionoutarray as $cond){
+					$conditionoutid = $cond;
+				}
 			}
 
 			if($conditionoutresponse) {
-				echo "Success";
-
 				$date = date('Y-m-d');
 
 				$query = "INSERT INTO TRANSACTIONS (e_ssn, s_ssn, equip_id, trans_date, condition_out, condition_in)
@@ -62,22 +64,22 @@ if(isset($_POST['employee'], $_POST['s_ssn'], $_POST['equip_id'], $_POST['condit
 				$response = @mysqli_query($dbc, $query);
 
 				if($response) {
-					echo "Success";
+					echo "Successfully added a new transaction.";
 				} else {
-					echo "Couldn't issue database query<br />4";
+					echo "Couldn't issue database query<br />";
 					echo mysqli_error($dbc);
 				}
 			} else {
-				echo "Couldn't issue database query<br /> 3";
+				echo "Couldn't issue database query<br />";
 				echo mysqli_error($dbc);
 			}
 		} else {
-			echo "Couldn't issue database query to get ssn 2<br />";
+			echo "Couldn't issue database query<br />";
 			echo mysqli_error($dbc);
 		}
 
 	} else {
-		echo "Couldn't issue database query 1<br />";
+		echo "Couldn't issue database query<br />";
 		echo mysqli_error($dbc);
 
 	}
