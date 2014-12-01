@@ -136,7 +136,7 @@ if(isset($_POST['table'])) {
             </br></br>
             <input type="submit" value="Delete Equipment">
         </form>
-	<?php
+    <?php
         }
     }
     if ($tablename == 'transactions') {
@@ -149,6 +149,22 @@ if(isset($_POST['table'])) {
             <input required name="r_trans_id" />
             </br></br>
             <input type="submit" value="Delete Transaction">
+        </form>
+    <?php
+        }
+    }
+    if($tablename == 'student_workers') {
+        if($condition_names) {
+    ?>
+        <p><strong>To adjust the hours allotted please enter the following data:</strong></p>
+        <form action="adjusthours.php" method="POST">
+            <label>Student ID:</label>
+            <input required name="worker_id" />
+            </br></br>
+            <label>New hour amount:</label>
+            <input required name="new_hours" />
+            </br></br>
+            <input type="submit" value="Adjust Hours">
         </form>
     <?php
         }
