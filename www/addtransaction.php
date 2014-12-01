@@ -64,20 +64,20 @@ if(isset($_POST['employee'], $_POST['s_ssn'], $_POST['equip_id'], $_POST['condit
 				if($response) {
 					echo "Success";
 				} else {
-					echo "Couldn't issue database query<br />";
+					echo "Couldn't issue database query<br />4";
 					echo mysqli_error($dbc);
 				}
 			} else {
-				echo "Couldn't issue database query<br />";
+				echo "Couldn't issue database query<br /> 3";
 				echo mysqli_error($dbc);
 			}
 		} else {
-			echo "Couldn't issue database query<br />";
+			echo "Couldn't issue database query to get ssn 2<br />";
 			echo mysqli_error($dbc);
 		}
 
 	} else {
-		echo "Couldn't issue database query<br />";
+		echo "Couldn't issue database query 1<br />";
 		echo mysqli_error($dbc);
 
 	}

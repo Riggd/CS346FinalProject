@@ -13,7 +13,7 @@
         <label>Employee:</label>
             <select required name="employee">                 
                 <?php
-                    $cemployee_query = "SELECT fname, mi, lname FROM employee ORDER BY lname";
+                    $cemployee_query = "SELECT CONCAT(fname, ' ', mi, ' ', lname) FROM employee ORDER BY lname";
                     $employee_names = @mysqli_query($dbc, $cemployee_query);
 
                     while($names = mysqli_fetch_array($employee_names, MYSQL_ASSOC)) {
