@@ -128,7 +128,7 @@ if(isset($_POST['table'])) {
         	<input type="submit" value="Enter New Equipment">
     	</form>
 
-        <p><strong>To delete an equipment item please enter the following data:</strong></p>
+        <p><strong>To delete equipment please enter the following data:</strong></p>
         <form action="removeequipment.php" method="POST">
             <label>Equip ID:</label>
             <input required name="r_equip_id" />
