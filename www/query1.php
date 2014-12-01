@@ -121,8 +121,9 @@ if(isset($_POST['table'])) {
                         while($names = mysqli_fetch_array($condition_names, MYSQL_ASSOC)) {
                             foreach ($names as $name): ?>
     						  <option value="<?php echo $name; ?>"><?php echo $name ?></option> 
-    					<?php endforeach;
-                    }?>
+					   <?php endforeach;
+                        }
+                    ?>
    				</select>
 			</br></br>
         	<input type="submit" value="Enter New Equipment">
@@ -135,8 +136,8 @@ if(isset($_POST['table'])) {
             </br></br>
             <input type="submit" value="Delete Equipment">
         </form>
-		}
 	<?php
+        }
     }
     if ($tablename == 'transactions') {
         if($condition_names) {
@@ -149,6 +150,7 @@ if(isset($_POST['table'])) {
             </br></br>
             <input type="submit" value="Delete Transaction">
         </form>
+    <?php
         }
     }
 

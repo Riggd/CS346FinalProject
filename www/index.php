@@ -87,7 +87,7 @@
             <select required name="brand">
                 <option value="%">All Inventory Items</option>
                 <?php
-                    $brandsquery = "SELECT brand FROM EQUIPMENT";
+                    $brandsquery = "SELECT DISTINCT brand FROM EQUIPMENT";
                     $brands = @mysqli_query($dbc, $brandsquery);
                     
                     while($names = mysqli_fetch_array($brands, MYSQL_ASSOC)) {
