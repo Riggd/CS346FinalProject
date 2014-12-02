@@ -65,6 +65,19 @@ if(isset($_POST['employee'], $_POST['s_ssn'], $_POST['equip_id'], $_POST['condit
 
 				if($response) {
 					echo "Successfully added a new transaction.";
+
+					$query2 = "UPDATE EQUIPMENT SET condition_level = '$conditioninid' WHERE equip_id = '$equip_id'";
+
+					$response2 = @mysqli_query($dbc, $query2);
+
+					if($response2) {
+						echo "Successfully updated equipment.";
+						
+					} else {
+						echo "Couldn't issue database query<br />";
+						echo mysqli_error($dbc);
+					}
+
 				} else {
 					echo "Couldn't issue database query<br />";
 					echo mysqli_error($dbc);
