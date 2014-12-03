@@ -1,7 +1,13 @@
-<a href='index.php'>Back to Home</a></br>
+<a href='index.php'>Back to Home</a></br></br>
 <style>
+html {
+    background-color: #D1F0FF;
+}
 table, th, td {
 	border: 1px solid black;
+}
+body {
+    margin-left: 2rem;
 }
 </style>
 <?php
@@ -50,6 +56,7 @@ if(isset($_POST['table'])) {
 
 	if ($tablename == 'employee') {
 	?>
+    <div style="float:left;">
 		<p><strong>To add an employee please enter the following data:</strong></p>
         <form action="addemployee.php" method="POST">
             <label>Social Security Number:</label>
@@ -75,7 +82,8 @@ if(isset($_POST['table'])) {
             </br></br>
             <input type="submit" value="Add Employee">
         </form>
-
+    </div>
+    <div style="float:left; margin-left: 4em;">
         <p><strong>To delete an employee please enter the following data:</strong></p>
         <form action="removeemployee.php" method="POST">
             <label>Social Security Number:</label>
@@ -92,12 +100,14 @@ if(isset($_POST['table'])) {
             </br></br>
             <input type="submit" value="Delete Employee">
         </form>
+    </div>
 	<?php
 	}
 	if ($tablename == 'equipment') {
     	if($condition_names) {
     		    
 	?>
+    <div style="float:left;">
 		<p><strong>To add new equipment please enter the following data:</strong></p>
 		<form action="addequipment.php" method="POST">
         	<label>Equipment ID:</label>
@@ -128,7 +138,8 @@ if(isset($_POST['table'])) {
 			</br></br>
         	<input type="submit" value="Enter New Equipment">
     	</form>
-
+    </div>
+    <div style="float:left; margin-left: 4em;">
         <p><strong>To delete equipment please enter the following data:</strong></p>
         <form action="removeequipment.php" method="POST">
             <label>Equip ID:</label>
@@ -136,6 +147,7 @@ if(isset($_POST['table'])) {
             </br></br>
             <input type="submit" value="Delete Equipment">
         </form>
+    </div>
     <?php
         }
     }

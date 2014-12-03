@@ -1,7 +1,13 @@
-<a href='index.php'>Back to Home</a>
+<a href='index.php'>Back to Home</a></br></br>
 <style>
+html {
+    background-color: #D1F0FF;
+}
 table, th, td {
 	border: 1px solid black;
+}
+body {
+	margin-left: 2rem;
 }
 </style>
 <?php

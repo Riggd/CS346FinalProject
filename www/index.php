@@ -1,14 +1,20 @@
 <html>
 <head>
 	<title>CS346 - Cameron Beasley, Derek Onay</title>
+    <style>
+    html {
+        background-color: #D1F0FF;
+        margin: 2rem;
+    }
+    </style>
 </head>	
 <body>
 	<?php require_once('connect.php');?>
-	<h1>Welcome to our final project!</h1>
+	<h1>Beasley-Onay Rentals&copy;</h1>
 
-    <h3>P.O.S. Tools</h3>	
+    <h2>P.O.S. Tools</h2>	
 
-    <p>New Transaction</p>
+    <h4>New Transaction</h4>
     <form action="addtransaction.php" method="POST">
         <label>Employee:</label>
             <select required name="employee">                 
@@ -46,9 +52,9 @@
     </form>
 
     <hr />
-    <h3>Admin Tools</h3>
+    <h2>Admin Tools</h2>
 
-    <p>Query 1:</br>
+    <p><h4>Query 1:</h4>
        Choose which table you would like to see all records from:
     </p>
     <form action="query1.php" method="POST">
@@ -62,18 +68,18 @@
         <input type="submit" value="Find Table">
     </form>
 
-    <p>Query 2:</br>
+    <p><h4>Query 2:</h4>
        Transaction Lookup
     </p>
     <form action="query2.php" method="POST">
-        Enter a student name:<input type="text" name="q2name" value="">
-        Enter date range:<br/><br/>
+        Enter a student name:<input type="text" name="q2name" value=""><br/><br/>
+        Enter date range:<br/>
             After: <input type="date" name="q2after">
-            Before: <input type="date" name="q2before">
+            Before: <input type="date" name="q2before"><br/><br/>
         <input type="submit" value="Find Table">
     </form>
 
-    <p>Query 3:</br>
+    <p><h4>Query 3:</h4>
        Current Value of Inventory
         <ul>
             <li>New - 90% of list price</li>
